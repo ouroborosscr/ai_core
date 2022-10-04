@@ -1,0 +1,1 @@
+2022-10-04 15:58:35,920 - utils.utils - WARNING - Logging to: saved_models/model_MNIST_Oct.04_15.58.35_mnist
