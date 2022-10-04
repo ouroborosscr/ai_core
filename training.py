@@ -14,16 +14,10 @@ from utils.utils import *
 def train(hlpr: Helper, epoch, model, optimizer, train_loader, attack=True):
     criterion = hlpr.task.criterion
     model.train()
-    # ##delete
-    # j=0
-    # ##
+
 
     for i, data in tqdm(enumerate(train_loader)):
-        # ##delete
-        # j+=1
-        # if(j==2):
-        #     break
-        # ##
+
         batch = hlpr.task.get_batch(i, data)
         model.zero_grad()
         loss = hlpr.attack.compute_blind_loss(model, criterion, batch, attack)
@@ -40,17 +34,11 @@ def test(hlpr: Helper, epoch, backdoor=False):
     model = hlpr.task.model
     model.eval()
     hlpr.task.reset_metrics()
-    # ##delete
-    # j=0
-    # ##
+
 
     with torch.no_grad():
         for i, data in tqdm(enumerate(hlpr.task.test_loader)):
-            # ##delete
-            # j+=1
-            # if(j==2):
-            #     break
-            # ##
+
             batch = hlpr.task.get_batch(i, data)
             # if backdoor:
             #     batch = hlpr.attack.synthesizer.make_backdoor_batch(batch,
@@ -71,8 +59,8 @@ def run(hlpr):
     for epoch in range(hlpr.params.start_epoch,
                        hlpr.params.epochs + 1):
         ##delete
-        if(epoch==2):
-            break
+        # if(epoch==2):
+        #     break
         ##
         train(hlpr, epoch, hlpr.task.model, hlpr.task.optimizer,
               hlpr.task.train_loader)
